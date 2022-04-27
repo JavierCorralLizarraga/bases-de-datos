@@ -57,7 +57,15 @@ select employee_id, (extract(year from current_date) - extract(year from birth_d
 
 12. Cuál es la orden más reciente por cliente?
 ~~~ sql 
-
+select distinct(c2.contact_name), order_id from (
+select contact_name, max(order_date) as maximo
+from orders o 
+join customers c on c.customer_id = o.customer_id 
+group by contact_name
+) as fechas
+join customers c2 on fechas.contact_name = c2.contact_name 
+join orders o on o.customer_id = c2.customer_id
+where order_date = maximo
 ~~~
 
 13. De nuestros clientes, qué función desempeñan y cuántos son?
@@ -72,7 +80,7 @@ select category_id, count(*) as cantidad from products p group by category_id
 
 15. Cómo podemos generar el reporte de reorder?
 ~~~ sql 
-
+select product_id, reorder_level from products
 ~~~
 
 16. A donde va nuestro envío más voluminoso?
@@ -89,7 +97,6 @@ sacamos el average de ordenes por cliente
 select avg(count) from (select count(*) from orders o group by customer_id) as a
 ~~~
 el cual da ~9.3,
-
 si tiene entre 6 y 12 sera regular, si tiene mas de 12 sera bueno y si tiene menos de 6 sera malo
 ~~~ sql 
 
