@@ -12,7 +12,7 @@ select * from suppliers s where contact_title != 'Marketing Manager'
 
 3. Cuales órdenes no vienen de clientes en Estados Unidos?
 ~~~ sql 
-select * from orders o where ship_country != 'USA' 
+select * from customers c join orders o on c.customer_id = o.customer_id where c.country != 'USA' 
 ~~~
 
 4. Qué productos de los que transportamos son quesos?
@@ -37,22 +37,22 @@ select * from orders o where ship_country in ('France', 'Belgium')
 
 8. Necesitamos los nombres completos de los empleados, nombres y apellidos unidos en un mismo registro
 ~~~ sql 
-
+select concat(first_name,' ', last_name) as nombre_completo from employees e
 ~~~
 
 9. Cuánta lana tenemos en inventario?
 ~~~ sql 
-
+select unit_price * units_in_stock as lana from products p
 ~~~
 
 10. Cuantos clientes tenemos de cada país?
 ~~~ sql 
-
+select country, count(*) from customers c group by country
 ~~~
 
 11. Obtener un reporte de edades de los empleados para checar su elegibilidad para seguro de gastos médicos menores.
 ~~~ sql 
-
+select employee_id, (extract(year from current_date) - extract(year from birth_date)) as years from employees e
 ~~~
 
 12. Cuál es la orden más reciente por cliente?
