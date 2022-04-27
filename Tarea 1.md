@@ -2,27 +2,27 @@
 
 1. Qué contactos de proveedores tienen la posición de sales representative?
 ~~~ sql
-SELECT * FROM something 
+select * from suppliers s where contact_title = 'Sales Representative' 
 ~~~
 
 2. Qué contactos de proveedores no son marketing managers?
 ~~~ sql 
-
+select * from suppliers s where contact_title != 'Marketing Manager'  
 ~~~
 
 3. Cuales órdenes no vienen de clientes en Estados Unidos?
 ~~~ sql 
-
+select * from orders o where ship_country != 'USA' 
 ~~~
 
 4. Qué productos de los que transportamos son quesos?
 ~~~ sql 
-
+select * from products p where category_id = 4
 ~~~
 
 5. Qué ordenes van a Bélgica o Francia?
 ~~~ sql 
-
+select * from orders o where ship_country in ('France', 'Belgium')
 ~~~
 
 6. Qué órdenes van a LATAM?
