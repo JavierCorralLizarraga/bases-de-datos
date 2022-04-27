@@ -27,12 +27,12 @@ select * from orders o where ship_country in ('France', 'Belgium')
 
 6. Qué órdenes van a LATAM?
 ~~~ sql 
-
+select * from orders o where ship_country in ('Argentina', 'Mexico', 'Brazil', 'Venezuela')
 ~~~
 
 7. Qué órdenes no van a LATAM?
 ~~~ sql 
-
+select * from orders o where ship_country not in ('Argentina', 'Mexico', 'Brazil', 'Venezuela')
 ~~~
 
 8. Necesitamos los nombres completos de los empleados, nombres y apellidos unidos en un mismo registro
