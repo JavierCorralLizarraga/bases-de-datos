@@ -107,5 +107,9 @@ tomaremos navidad como solo el 25 de diciembre
 
 20. Qué país recibe el mayor volumen de producto?
 ~~~ sql 
-
+select ship_country 
+from 
+(select ship_country, count(*) as cantidad from orders o group by ship_country) as tabla
+where cantidad = 
+(select max(cantidad) from (select ship_country, count(*) as cantidad from orders o group by ship_country) as cantidades)
 ~~~
