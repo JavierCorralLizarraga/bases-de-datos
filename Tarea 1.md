@@ -98,9 +98,7 @@ select avg(count) from (select count(*) from orders o group by customer_id) as a
 ~~~
 el cual da ~9.3,
 si tiene entre 6 y 12 sera regular, si tiene mas de 12 sera bueno y si tiene menos de 6 sera malo
-~~~ sql 
 
-~~~
 18. Qué colaboradores chambearon durante las fiestas de navidad?
 ~~~ sql 
 select employee_id from orders o where extract(day from shipped_date) = 25 and extract(month from shipped_date)=12
