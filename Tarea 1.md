@@ -62,12 +62,12 @@ select employee_id, (extract(year from current_date) - extract(year from birth_d
 
 13. De nuestros clientes, qué función desempeñan y cuántos son?
 ~~~ sql 
-
+select contact_title, count(*) as cantidad from customers c group by contact_title 
 ~~~
 
 14. Cuántos productos tenemos de cada categoría?
 ~~~ sql 
-
+select category_id, count(*) as cantidad from products p group by category_id 
 ~~~
 
 15. Cómo podemos generar el reporte de reorder?
@@ -77,20 +77,26 @@ select employee_id, (extract(year from current_date) - extract(year from birth_d
 
 16. A donde va nuestro envío más voluminoso?
 ~~~ sql 
-
+select ship_address from orders o where freight = (select max(freight) from orders)
 ~~~
 
 17. Cómo creamos una columna en customers que nos diga si un cliente es bueno, regular, o malo?
+sacamos el average de ordenes por cliente
+~~~ sql 
+select avg(count) from (select count(*) from orders o group by customer_id) as a
+~~~
+el cual da ~9.3
+si tiene entre 6 y 12 sera regular, si tiene mas de 12 sera bueno y si tiene menos de 6 sera malo
 ~~~ sql 
 
 ~~~
-
 18. Qué colaboradores chambearon durante las fiestas de navidad?
 ~~~ sql 
 
 ~~~
 
 19. Qué productos mandamos en navidad?
+tomaremos navidad como solo el 25 de diciembre
 ~~~ sql 
 
 ~~~
