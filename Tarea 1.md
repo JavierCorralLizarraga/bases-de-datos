@@ -1,9 +1,9 @@
 ## Ejercicios - Tarea 1
 
 1. Qué contactos de proveedores tienen la posición de sales representative?
-''' sql 
-
-'''
+~~~ sql
+SELECT * FROM something 
+~~~
 
 2. Qué contactos de proveedores no son marketing managers?
 ''' sql 
