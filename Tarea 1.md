@@ -77,7 +77,7 @@ select category_id, count(*) as cantidad from products p group by category_id
 
 16. A donde va nuestro envío más voluminoso?
 
-asumiendo que voluminoso se refiere a cantidad
+asumiendo que entre mas voluminoso el envio, mayor sera el freight
 ~~~ sql 
 select ship_address from orders o where freight = (select max(freight) from orders)
 ~~~
@@ -96,13 +96,15 @@ si tiene entre 6 y 12 sera regular, si tiene mas de 12 sera bueno y si tiene men
 ~~~
 18. Qué colaboradores chambearon durante las fiestas de navidad?
 ~~~ sql 
-
+select employee_id from orders o where extract(day from shipped_date) = 25 and extract(month from shipped_date)=12
 ~~~
 
 19. Qué productos mandamos en navidad?
 tomaremos navidad como solo el 25 de diciembre
 ~~~ sql 
-
+select product_id from orders o  
+join order_details od ON o.order_id = od.order_id 
+where extract(day from shipped_date) = 25 and extract(month from shipped_date)=12
 ~~~
 
 20. Qué país recibe el mayor volumen de producto?
