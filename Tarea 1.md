@@ -76,16 +76,20 @@ select category_id, count(*) as cantidad from products p group by category_id
 ~~~
 
 16. A donde va nuestro envío más voluminoso?
+
+asumiendo que voluminoso se refiere a cantidad
 ~~~ sql 
 select ship_address from orders o where freight = (select max(freight) from orders)
 ~~~
 
 17. Cómo creamos una columna en customers que nos diga si un cliente es bueno, regular, o malo?
+
 sacamos el average de ordenes por cliente
 ~~~ sql 
 select avg(count) from (select count(*) from orders o group by customer_id) as a
 ~~~
-el cual da ~9.3
+el cual da ~9.3,
+
 si tiene entre 6 y 12 sera regular, si tiene mas de 12 sera bueno y si tiene menos de 6 sera malo
 ~~~ sql 
 
