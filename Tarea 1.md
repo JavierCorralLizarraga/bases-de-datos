@@ -80,7 +80,8 @@ select category_id, count(*) as cantidad from products p group by category_id
 
 15. Cómo podemos generar el reporte de reorder?
 ~~~ sql 
-select product_id, reorder_level from products
+select product_id, product_name, (reorder_level - units_in_stock - units_on_order) as cantidad
+from products p where (units_in_stock - units_on_order) <= reorder_level and discontinued = 0
 ~~~
 
 16. A donde va nuestro envío más voluminoso?
