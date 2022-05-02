@@ -27,10 +27,10 @@ Construyan un query que regrese emails inválidos.
 
 opcion poco robusta con like
 ~~~ sql
-select * from correos c where email  like '_%@_%._%'
+select * from correos c where email not like '_%@_%._%'
 ~~~
 
 opcion mas robusta con regex
 ~~~ sql
-select * from correos c where email  similar to '[A-Za-z0-9.-_]+@[A-Za-z0-9.-_]+'
+select * from correos c where email not similar to '[A-Za-z0-9.-_]+@[A-Za-z0-9.-_]+'
 ~~~
