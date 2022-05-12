@@ -44,8 +44,19 @@ group by nombre
 
 3. Qué películas son las más rentadas en todas nuestras stores?
 ~~~ sql 
-
+select title, rentas from
+(
+select film_id, count(rental_id) as rentas from rental r 
+join inventory i using (inventory_id)
+join film f using (film_id)
+group by film_id
+) as tabla1
+join film f2 using (film_id)
+order by rentas desc
+limit 5
 ~~~
+
+tome arbitrariamente las 5 mas rentadas a falta de otra especificacion en la pregunta
 
 4. Cuál es nuestro revenue por store?
 ~~~ sql
