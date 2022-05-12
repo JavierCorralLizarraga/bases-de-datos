@@ -4,7 +4,9 @@ Usando la BD de Sakila, y en un script de SQL separado, y **en su propio repo de
 
 1. Cómo obtenemos todos los nombres y correos de nuestros clientes canadienses para una campaña?
 ~~~ sql
-select * from algo 
+select cl."name", email from customer c 
+join customer_list cl on c.customer_id = cl.id 
+where country = 'Canada'
 ~~~
 
 2. Qué cliente ha rentado más de nuestra sección de adultos?
