@@ -60,5 +60,6 @@ tome arbitrariamente las 5 mas rentadas a falta de otra especificacion en la pre
 
 4. Cuál es nuestro revenue por store?
 ~~~ sql
-
+select store, total_sales from sales_by_store sbs
 ~~~
+
