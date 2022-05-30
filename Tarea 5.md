@@ -10,4 +10,15 @@ Se nos ha encargado formular la medida de dichos cilindros de manera tal que que
 
 Esto no se resuelve con 1 solo query. El problema se debe partir en varios cachos y deben resolver cada uno con SQL.
 
+### solucion 
+formula de volumen de los cilindros: volumen = $\pi$ * $radio ^ {2}$ * altura
+medida caja BR: 20cm x 13.5cm x 1.5cm
+volumen caja BR: 405 cm3
+medida arnes: 30cm x 21cm x 8cm
+volumen arnes: 5040 cm3
+peso arnes 500 gr
+peso maximo por cilindro: 50 kg = 50,000 g
+
+queremos la medida de un cilindro:
+
 La información que no esté dada por el enunciado del problema o el contenido de la BD, podrá ser establecida como supuestos o assumptions, pero deben ser razonables para el problem domain que estamos tratando.
