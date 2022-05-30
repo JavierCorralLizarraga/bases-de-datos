@@ -4,6 +4,21 @@ Una aplicación frecuente de Ciencia de Datos aplicada a la industria del microl
 
 1. Cuál es el promedio, en formato human-readable, de tiempo entre cada pago por cliente de la BD Sakila?
 ~~~ sql 
+with t2 as(
+with t as (
+select first_name || ' ' || last_name as nombre, c.customer_id, payment_id, payment_date from payment p 
+join customer c using(customer_id)
+join rental r using (rental_id)
+) 
+select nombre, customer_id, payment_date - lag(payment_date) 
+over (
+order by payment_date) as duracion 
+from t
+)
+select nombre, avg(duracion) as promedio_duracion 
+from t2
+group by nombre
+order by promedio_duracion
 ~~~
 2. Sigue una distribución normal?
 ~~~ sql 
