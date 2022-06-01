@@ -7,5 +7,16 @@ Debemos calcular para cada cliente su promedio mensual de _deltas_ en los pagos 
 asumimos que la mejor metrica es la de quantity por tanto sobre esa hacemos el delta
 
 ~~~ sql 
-
+with t2 as(
+with t as(
+select contact_name as nombre, quantity from order_details od 
+join orders o using (order_id)
+join customers c using (customer_id)
+)
+select nombre, quantity - lag(quantity) over (partition by nombre) as delta
+from t
+)
+select nombre, avg(delta) as promedio_delta
+from t2 
+group by nombre 
 ~~~
