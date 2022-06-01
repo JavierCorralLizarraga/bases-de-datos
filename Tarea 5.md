@@ -52,5 +52,10 @@ lo cual nos da un volumen de: pi * 36.6^2*200 = 841670.37 cm3
 ### parte de sql
 ahora veremos cuantos cilindros necesitaremos por tienda
 ~~~ sql
-
+select count(inventory_id) from inventory i 
+group by store_id 
 ~~~
+![image](https://user-images.githubusercontent.com/46376887/171310544-6b74034c-8124-4113-b1e9-9dee96975750.png)
+vemos que la store 1 tiene 2270 BR en su inventario y la 2 tiene 2311 BR en su inventario 
+lo cual con simple aritmetica nos dice que necesitaremos 
+23 cilindros para la tienda 1 y 24 cilindros para la tienda 2
