@@ -12,7 +12,7 @@ join rental r using (rental_id)
 ) 
 select nombre, customer_id, payment_date - lag(payment_date) 
 over (
-order by payment_date) as duracion 
+partition by nombre) as duracion 
 from t
 )
 select nombre, avg(duracion) as promedio_duracion 
@@ -31,10 +31,10 @@ join rental r using (rental_id)
 ) 
 select nombre, customer_id, payment_date - lag(payment_date) 
 over (
-order by payment_date) as duracion 
+partition by nombre) as duracion 
 from t
 )
-select nombre, cast(extract(epoch from avg(duracion)) as integer) as promedio_duracion
+select nombre, avg(duracion) as promedio_duracion 
 from t2
 group by nombre
 order by promedio_duracion
@@ -57,10 +57,10 @@ join rental r using (rental_id)
 ) 
 select nombre, customer_id, payment_date - lag(payment_date) 
 over (
-order by payment_date) as duracion 
+partition by nombre) as duracion 
 from t
 )
-select nombre, cast(extract(epoch from avg(duracion)) as integer) as promedio_duracion
+select nombre, avg(duracion) as promedio_duracion 
 from t2
 group by nombre
 order by promedio_duracion
