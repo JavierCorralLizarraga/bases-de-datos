@@ -32,5 +32,19 @@ sabemos entonces que si el cilindro aguanta 50,000 g y cada arnes pesa 500 g, ca
 
 arneses por cilindro: 100
 
+asumiendo arbitrariamente que puedan caber 4 arneses por nivel tendriamos 25 niveles. 
+Para determinar el radio del cilindro veremos la diagonal de un arnes por pitagoras
 
+diagonal de un arnes : ((30^2)+(21^2))^(1/2) = 36.6 = radio del cilindro
 
+como hay 4 arneses por nivel sabemos que la diagonal de un arnes es igual al radio del cilindro
+
+ahora para sacar la altura del cilindro podemos multiplicar la altura de un arnes por los 25 niveles
+
+altura del cilindro: 25* 8 = 200 
+
+**todo esto es asumiendo que no hay gap entre los arneses**
+
+entonces las medidas del cilindro son: radio = 36.6 cm y altura de 200 cm
+
+lo cual nos da un volumen de: pi*36.6^2*200 = 841670.37 cm3
