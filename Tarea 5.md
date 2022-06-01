@@ -47,4 +47,10 @@ altura del cilindro: 25* 8 = 200
 
 entonces las medidas del cilindro son: radio = 36.6 cm y altura de 200 cm
 
-lo cual nos da un volumen de: pi*36.6^2*200 = 841670.37 cm3
+lo cual nos da un volumen de: pi * 36.6^2*200 = 841670.37 cm3
+
+### parte de sql
+ahora veremos cuantos cilindros necesitaremos por tienda
+~~~ sql
+
+~~~
